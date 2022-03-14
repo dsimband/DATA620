@@ -1,0 +1,5 @@
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/dsimband/DATA620_Group3/main/data/node_with_headers.csv' AS row
+MERGE (e1:Edge1 {name : row.edge1})
+MERGE(e2:Edge2 {name: row.edge2})
+MERGE (e1)-[:FRIEND]->(e2)
+RETURN((e1)-[:FRIEND]->(e2))
